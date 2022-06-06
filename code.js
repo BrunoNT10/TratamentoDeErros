@@ -30,12 +30,15 @@ function clickNumberButton(){
         if(number == ''){
             throw 'Informe um valor'
         }
-        else if(parseInt(number) < 1 || parseInt(number) > 5){
-            throw 'Numero fora do intervalo desejado'
+        else if(parseInt(number) < 5 || parseInt(number) > 10){
+            throw 'Informe um valor maior que 5 e menor que 10'
         }
 
     }
     catch(error){
+        if(error != 'Informe um valor' && error != 'Informe um valor maior que 5 e menor que 10'){
+            error = 'Erro + erro javascript'
+        }
         document.getElementById('outputnumber').innerHTML = error
         setTimeout(function(){
             document.getElementById('outputnumber').innerHTML = ''
@@ -43,7 +46,7 @@ function clickNumberButton(){
         }, 5000)
     }
     finally{
-
+        document.getElementById('outputnumber2').innerHTML = 'O número escolhido foi o '+number
     }
 
 }
