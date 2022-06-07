@@ -17,7 +17,6 @@ function clickFileButton(){
     }
     catch(error){
         alert(error)
-        // console.log(n)
     }
     finally{
         alert('Obrigado pela visita')
@@ -25,30 +24,23 @@ function clickFileButton(){
 }
 function clickNumberButton(){
     number = document.getElementById('inputnumber').value
+    document.getElementById('outputnumber').innerHTML = ''
 
     try{
         if(number == ''){
             throw 'Informe um valor'
         }
-        else if(parseInt(number) < 5 || parseInt(number) > 10){
+        else if(Number(number) <= 5 || Number(number) >= 10){
             throw 'Informe um valor maior que 5 e menor que 10'
         }
-
     }
     catch(error){
-        if(error != 'Informe um valor' && error != 'Informe um valor maior que 5 e menor que 10'){
-            error = 'Erro + erro javascript'
-        }
         document.getElementById('outputnumber').innerHTML = error
-        setTimeout(function(){
-            document.getElementById('outputnumber').innerHTML = ''
-
-        }, 5000)
+        console.log('Erro' + error)
     }
     finally{
-        document.getElementById('outputnumber2').innerHTML = 'O número escolhido foi o '+number
+        alert('O número escolhido foi: '+number)
     }
 
 }
-
 
